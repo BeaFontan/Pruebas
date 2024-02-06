@@ -50,7 +50,7 @@ public class ChromeTest {
         WebElement buscador =  driver.findElement(By.name("searchword"));
 
         buscador.sendKeys("tramites");
-        buscador.
+        buscador.sendKeys(Keys.ENTER);
 
         try {
             Thread.sleep(2000);
@@ -61,6 +61,41 @@ public class ChromeTest {
 
     }
 
+
+    @Test
+    public void CPR3(){
+        
+        //WebElement sugerenciasA =  driver.findElement(By.xpath(".//a[@title='Sugerenicas']"));
+
+        driver.get("http://www.vilanovadearousa.com/index.php?option=com_contact&view=contact&id=1%3Abuzon-sugerencias-contac&catid=8%3Aconcello");
+
+        
+        WebElement formularioNombre =  driver.findElement(By.id("contact_name"));
+        WebElement formularioEmail = driver.findElement(By.id("contact_email"));
+        WebElement formularioTema = driver.findElement(By.id("contact_subject"));
+        WebElement formularioMensaje = driver.findElement(By.id("contact_text"));
+        WebElement checkEnvioEmail = driver.findElement(By.id("contact_email_copy"));
+        WebElement botonEnviarForm = driver.findElement(By.className("button"));
+
+        formularioNombre.sendKeys("Nombre");
+        formularioEmail.sendKeys("abc@hotmail.com");
+        formularioTema.sendKeys("Tema");
+        formularioMensaje.sendKeys("Mensaje");
+        checkEnvioEmail.click();
+        botonEnviarForm.click();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    
 
 
 
