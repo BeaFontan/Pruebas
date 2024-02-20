@@ -93,9 +93,50 @@ public class ChromeTest {
 
     }
 
+    @Test
+    public void CPR4(){
 
+        driver.get("http://www.vilanovadearousa.com/index.php?searchword=HOL&ordering=newest&searchphrase=all&option=com_search");
+  
+       WebElement checkArticulos = driver.findElement(By.id("area_content"));
+
+       checkArticulos.click();
+
+       try {
+           Thread.sleep(5000);
+       } catch (InterruptedException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }
+
+       assertTrue(checkArticulos.isSelected());
+    }
 
     
+    @Test
+    public void CPR5(){
+        
+        driver.get("http://www.vilanovadearousa.com/index.php?searchword=HOL&ordering=newest&searchphrase=all&option=com_search");
+
+        WebElement cajaBuscador = driver.findElement(By.id("search_searchword"));
+
+        cajaBuscador.sendKeys("Frase exacta");
+
+       WebElement radioExacta = driver.findElement(By.id("searchphraseexact"));
+
+        radioExacta.click();
+
+        WebElement botonBuscar = driver.findElement(By.className("button"));
+
+       botonBuscar.click();
+
+       try {
+           Thread.sleep(5000);
+       } catch (InterruptedException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }
+    }
 
 
 
